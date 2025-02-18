@@ -73,7 +73,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_FILES['image'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Photo Capture</title>
     <style>
-        * {
+         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
@@ -142,7 +142,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_FILES['image'])) {
         canvas {
             display: none;
         }
-        .capture-btn, .retake-btn, .confirm-btn {
+        .capture-btn, .retake-btn, .confirm-btn, .undertime-btn, .overtime-btn {
             position: absolute;
             bottom: 60px;
             width: 90px;
@@ -158,6 +158,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_FILES['image'])) {
             left: 50%;
             transform: translateX(-50%);
         }
+        .undertime-btn {
+            left: 20%;
+        }
+        .overtime-btn {
+            right: 20%;
+        }
         .retake-btn {
             left: 20%;
             display: none;
@@ -166,7 +172,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_FILES['image'])) {
             right: 20%;
             display: none;
         }
-        .capture-btn:active, .retake-btn:active, .confirm-btn:active {
+        .capture-btn:active, .retake-btn:active, .confirm-btn:active, .undertime-btn:active, .overtime-btn:active {
             background: lightgray;
         }
     </style>
@@ -182,9 +188,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_FILES['image'])) {
         </div>
         <canvas id="canvas"></canvas>
         <img id="photo" style="display:none;">
-        <button id="capture" class="capture-btn"></button>
-        <button id="retake" class="retake-btn"></button>
-        <button id="confirm" class="confirm-btn"></button>
+        <button id="capture" class="capture-btn">Capture</button>
+        <button id="undertime" class="undertime-btn">Undertime</button>
+        <button id="overtime" class="overtime-btn">Overtime</button>
+        <button id="retake" class="retake-btn">Retake</button>
+        <button id="confirm" class="confirm-btn">Confirm</button>
         <div class="bottom-line"></div>
     </div>
     <script>
